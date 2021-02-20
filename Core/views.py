@@ -1,4 +1,5 @@
-from django.shortcuts import render
+from django.shortcuts import render, HttpResponse
+from .models import Producto
 
 
 # Create your views here.
@@ -11,8 +12,12 @@ def faq(request):
     return render(request, 'faq.html')
 
 
-def listar_productos(request):
-    data = {
+def listar_perfumes(request):
+    productos = Producto.objects.all()
 
+    data = {
+        'productos': productos,
     }
-    render(request, data)
+    return render(request, 'catalogo/perfumes.html', data)
+
+##Listado de productos
