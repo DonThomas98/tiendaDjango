@@ -1,3 +1,49 @@
 {% extends 'base.html' %}
 
 {% block title %}Preguntas Frecuentes{% endblock title%}
+
+{% block carrusel %}
+{% endblock carrusel %}
+
+{% block contenido %}
+<br>
+<div class="container">
+
+<div class="accordion accordion-flush" id="acordionbotstrap">
+  <div class="accordion-item">
+    <h2 class="accordion-header" id="flush-headingOne">
+      <button title="Toca el texto para ver la explicacion" class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseOne" aria-expanded="false" aria-controls="flush-collapseOne">
+        ¿Quienes somos?
+      </button>
+    </h2>
+    <div id="flush-collapseOne" class="accordion-collapse collapse" aria-labelledby="flush-headingOne" data-bs-parent="#acordionbotstrap">
+      <div class="accordion-body">Somos Detocris, una Pyme radicada en Quinta Normal , dedicada a la venta de artículos de decoración, perfumes y ropa de cama.</div>
+    </div>
+  </div>
+  <div class="accordion-item">
+    <h2 class="accordion-header" id="flush-headingTwo">
+      <button title="Toca el texto para ver la explicacion" class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseTwo" aria-expanded="false" aria-controls="flush-collapseTwo">
+        Metodos de pago
+      </button>
+    </h2>
+    <div id="flush-collapseTwo" class="accordion-collapse collapse" aria-labelledby="flush-headingTwo" data-bs-parent="#acordionbotstrap">
+      <div class="accordion-body">Actualmente poseemos los metodos de pago en efectivo , metodo por el cual se reserva el producto hasta el momento de pago , el producto se puede reservar hasta por 3 dias. </div>
+    </div>
+  </div>
+  <div class="accordion-item">
+    <h2 class="accordion-header" id="flush-headingThree">
+      <button title="Toca el texto para ver la explicacion" class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseThree" aria-expanded="false" aria-controls="flush-collapseThree">
+        Metodos de entrega de producto
+      </button>
+    </h2>
+    <div id="flush-collapseThree" class="accordion-collapse collapse" aria-labelledby="flush-headingThree" data-bs-parent="#acordionbotstrap">
+      <div class="accordion-body">Al momento de reservar su producto , debe venir a buscarlo y mostrar el orden de producto , despues de esto debe cancelar el producto en caja , momento en que se le entregara.</div>
+    </div>
+  </div>
+</div>
+
+
+
+</div>
+<!--Fin container de preguntas-->
+{% endblock %}
