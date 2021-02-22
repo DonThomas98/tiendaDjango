@@ -1,6 +1,5 @@
 from django.shortcuts import render, HttpResponse
-from .models import Producto
-
+from .models import Producto,Categoria
 
 # Create your views here.
 
@@ -14,10 +13,11 @@ def faq(request):
 
 def listar_perfumes(request):
     productos = Producto.objects.all()
-
+    categorias = Categoria.objects.all()
     data = {
-        'productos': productos,
+        'prod': productos,
+        'categorias':categorias,
     }
-    return render(request, 'catalogo/perfumes.html', data)
+    return render(request, 'perfumes.html', data)
 
 ##Listado de productos

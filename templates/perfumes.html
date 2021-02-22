@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+
+{% block title %}Catalogo Perfumes{% endblock title%}
+
+{% block carruselPrincipal %}
+
+{% endblock  %}
+
+{% block catalogo %}
+
+
+<h2>no sale :C</h2>
+<!--empieza el for-->
+{% for p in prod %}  
+ 
+ <div class="bg-light">ID {{ p.id }} {{ p.nombre }} {{ p.stock }} {{ p.foto }}</div>  
+{% endfor %}
+<!--Termina el for-->
+<h3 class="bg-light">aaa</h3>
+
+{% endblock %}
