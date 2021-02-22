@@ -1,5 +1,7 @@
 from django.shortcuts import render, HttpResponse
+from django.views.generic import ListView
 from .models import Producto,Categoria
+from pytz import timezone
 
 # Create your views here.
 
@@ -20,4 +22,12 @@ def listar_perfumes(request):
     }
     return render(request, 'perfumes.html', data)
 
-##Listado de productos
+##Listado de productos como 
+class ProductoList(ListView):
+    model = Producto
+    paginate_by =10
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['now'] = timezone.now()
+        return context
