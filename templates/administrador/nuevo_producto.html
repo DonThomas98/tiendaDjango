@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+
+{% block title %}Preguntas Frecuentes{% endblock title%}
+
+{% block carruselPrincipal %}
+
+{% endblock carruselPrincipal %}
+
+{% block catalogo %}
+
+<div  class="container centrar bg-light">
+    <br>
+    <h3>Formulario para agregar productos</h3>
+<br>
+    {% for field in form %}
+
+        <div class="row-cols-lg-6">
+        <b>{{ field.label_tag }}</b> - {{ field }}
+
+        </div>
+        <br>
+
+    {% endfor %}
+
+        <button class="btn-primary" type="submit">Enviar</button>
+
+</div>
+
+
+{% endblock %}

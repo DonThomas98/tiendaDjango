@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+
+{% block title %}Preguntas Frecuentes{% endblock title%}
+
+{% block carruselPrincipal %}
+
+{% endblock carruselPrincipal %}
+
+{% block catalogo %}
+
+<div style="background-color: #198754" class="container centrar ">
+    <br>
+    <h3>Formulario de contacto</h3>
+<br>
+    {% for field in form %}
+
+        <div class="row-cols-lg-6">
+        <b>{{ field.label_tag }}</b> - {{ field }}
+
+        </div>
+        <br>
+
+    {% endfor %}
+        <button type="submit">Enviar</button>
+
+</div>
+
+
+{% endblock %}

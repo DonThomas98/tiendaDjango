@@ -8,8 +8,7 @@
 <!--icono pagina-->
 
 <link rel="shortcut icon" type="image/png" href="{% static 'img/detocrislogo.jpeg' %}"/>
-
-
+<link rel="stylesheet" href="{% static 'css/style.css' %}">
 
 <!--Links de bootstrap jquery y css-->
 
@@ -20,12 +19,12 @@
 
 
 </head>
-<body style="background-color: lightcyan" class="bg-dark">
+<body  class="bg-dark">
 
 <nav class="navbar navbar-expand-lg navbar-light ">
   <div class="container bg-light">
     <a class="navbar-brand" href="{% url 'hogar' %}">
-        <img src="{% static 'img/detocrislogo.jpeg' %}" width="50" height="50" class="d-inline-block align-top" alt="logo_detocris" >
+        <img src="{% static 'img/detocrislogo.jpeg' %}"  class="d-inline-block align-top logo_menu" alt="logo_detocris" >
     </a>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon">
@@ -46,9 +45,9 @@
             <li><a class="dropdown-item" href="{% url 'catalogoPefumes' %}">Perfumes</a></li>
                 <li><hr class="dropdown-divider"></li>
 
-            <li><a class="dropdown-item" href="#">Deco Hogar</a></li>
+            <li><a class="dropdown-item" href="{% url 'catalogoDecoracion' %}">Deco Hogar</a></li>
                 <li><hr class="dropdown-divider"></li>
-            <li><a class="dropdown-item" href="#">Dormitorio</a></li>
+            <li><a class="dropdown-item" href="{% url 'catalogoDormitorio' %}">Dormitorio</a></li>
           </ul>
         </li>
         <li class="nav-item">
@@ -68,7 +67,6 @@
 
 
 <!--FIN MENU-->
-<br>
 
 {% block carruselPrincipal %}
 

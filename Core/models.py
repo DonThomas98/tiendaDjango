@@ -29,10 +29,11 @@ class Categoria(models.Model):
 
 class Producto(models.Model):
     nombre = models.CharField(max_length=100)
+    precio = models.IntegerField(default=0)
     stock = models.IntegerField(default=0)
-    foto = models.ImageField(upload_to='media', default=0)
+    foto = models.ImageField(upload_to='media/', default=0)
     categoria = models.ForeignKey(Categoria, on_delete=models.CASCADE)
-    descripcion = models.CharField(max_length=200,default='No hay descripción')
+    descripcion = models.CharField(max_length=200, default='No hay descripción')
 
     def __str__(self):
         return '%s %s' % (self.nombre, self.categoria)
@@ -56,7 +57,27 @@ class Venta(models.Model):
 class DetalleVenta(models.Model):
     fecha_venta = models.DateField(auto_now=True)
     sucursal = models.ManyToManyField(Sucursal)
-    monto_boleta = models.IntegerField()
 
     def __str__(self):
         return self.name
+
+
+class Contacto(models.Model):
+    opcionesContacto = [
+        ('0', 'Contacto'),
+        ('1', 'Reclamo'),
+        ('2', 'Problema al momento de comprar'),
+        ('3', 'Sugerencias'),
+        ('4', 'Felicitaciones'),
+    ]
+
+    nombre = models.CharField(max_length=70)
+    correo = models.EmailField()
+    tipo_contacto = models.IntegerField(choices=opcionesContacto)
+    mensaje = models.CharField(max_length=200)
+    avisos = models.BooleanField(blank=True)
+
+
+def __str__(self):
+    return '%s %s' % (self.nombre, self.tipo_contacto)
+

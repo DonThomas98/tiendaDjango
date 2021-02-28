@@ -1,0 +1,47 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Catalogo Decoracion Hogar{% endblock title%}
+
+{% block carruselPrincipal %}
+
+{% endblock  %}
+
+{% block catalogo %}
+
+
+<div class="row container-fluid">
+<br>
+<!--Breadcrumb-->
+
+<nav  style="--bs-breadcrumb-divider: '>'; " aria-label="breadcrumb">
+  <ol class="breadcrumb">
+    <li class="breadcrumb-item "><a href="{% url 'hogar' %}">Inicio</a></li>
+    <li class="breadcrumb-item active" aria-current="page">Catalogo de Deco Hogar</li>
+  </ol>
+</nav>
+
+{% for p in prod %}
+
+   <div class=" col-sm-3">
+     <div class="card">
+      <img src="{{ p.foto.url }}" class="imagen_catalogo bg-light" style="display: block;" alt="img">
+       <div class="card-body">
+         <h5 class="card-title centrar" >{{ p.nombre }} </h5>
+         <p class="card-text">{{ p.descripcion }}</p>
+
+         <a href="{% url 'fichaProducto' %}" class="btn btn-info justify-content-end ">Ver Producto</a>
+         <a href="#" class="btn btn-primary  justify-content-end" >Agregar al carro</a>
+       </div>
+     </div>
+   </div>
+
+{% endfor %}
+
+</div>
+<!--Termina el for-->
+
+
+
+
+{% endblock %}
