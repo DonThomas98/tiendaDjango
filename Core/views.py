@@ -1,8 +1,9 @@
 from django.shortcuts import render, HttpResponse
-from django.views.generic import ListView
-from .models import Producto, Categoria
+from django.views.generic import ListView, CreateView
+from .models import Producto, Categoria, Contacto
 from pytz import timezone
-from .forms import contacto_form, ContactoForm, ProductoForm
+from .forms import ContactoForm
+from django.urls import reverse_lazy
 
 
 # Create your views here.
@@ -48,42 +49,8 @@ def ficha_producto(request):
     return render(request, 'catalogo/ficha_producto.html')
 
 
-def contacto(request):
-    if request.method == 'POST':
-        form = contacto_form(request.POST)
-        if form.is_valid():
-            return HttpResponse('Gracias por su tiempo!')
-    else:
-        form = contacto_form()
-
-    data = {
-
-        'form': form
-
-    }
-    return render(request, 'contacto/formulario_contacto.html', data)
-
-
-def contacto2(request):
-    if request.method == 'POST':
-        form = ContactoForm(request.POST)
-        if form.is_valid():
-            return HttpResponse('Gracias por su tiempo!')
-    else:
-        form = ContactoForm()
-
-    data = {
-
-        'form': form
-
-    }
-    return render(request, 'contacto/formulario_contacto.html', data)
-
-
-def agregar_producto(request):
-    data = {
-
-        'form': ProductoForm
-    }
-
-    return render(request, 'administrador/nuevo_producto.html', data)
+class ContactoCreateView(CreateView):
+    model = Contacto
+    form_class = ContactoForm
+    template_name = 'contacto/formulario_contacto.html'
+    success_url = reverse_lazy('hogar')

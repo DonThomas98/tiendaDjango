@@ -9,9 +9,7 @@
 
 <link rel="shortcut icon" type="image/png" href="{% static 'img/detocrislogo.jpeg' %}"/>
 <link rel="stylesheet" href="{% static 'css/style.css' %}">
-
 <!--Links de bootstrap jquery y css-->
-
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.bundle.min.js" integrity="sha384-b5kHyXgcpbZJO/tY9Ul7kGkf1S0CWuKcCD38l8YkeH8z8QjE0GmW1gYU5S9FOnJ0" crossorigin="anonymous"></script>
 
@@ -21,8 +19,8 @@
 </head>
 <body  class="bg-dark">
 
-<nav class="navbar navbar-expand-lg navbar-light ">
-  <div class="container bg-light">
+<nav class="navbar navbar-expand-md navbar-light bg-light">
+  <div class="container-fluid bg-light">
     <a class="navbar-brand" href="{% url 'hogar' %}">
         <img src="{% static 'img/detocrislogo.jpeg' %}"  class="d-inline-block align-top logo_menu" alt="logo_detocris" >
     </a>
@@ -67,42 +65,68 @@
 
 
 <!--FIN MENU-->
+{% block header %}
+
+{% endblock header %}
 
 {% block carruselPrincipal %}
 
 
-<div class="container col-lg-6 bg-transparent ">
-
-<div id="carrusel" class="carousel slide" data-bs-ride="carrusel">
-  <div class="carousel-inner">
-    <div class="carousel-item active">
-      <img src="{% static "img/car3.jpeg" %}" class="d-block w-100" alt="cobertor">
-    </div>
-    <div class="carousel-item">
-      <img src="{% static "img/car2.jpeg" %}" class="d-block w-100" alt="frazada">
-    </div>
-    <div class="carousel-item">
-      <img src="{% static "img/car1.jpeg" %}" class="d-block w-100" alt="awa">
-    </div>
-  </div>
-  <button class="carousel-control-prev" type="button" data-bs-target="#carrusel"  data-bs-slide="prev">
-    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-    <span class="visually-hidden">Previous</span>
-  </button>
-  <button class="carousel-control-next" type="button" data-bs-target="#carrusel"  data-bs-slide="next">
-    <span class="carousel-control-next-icon" aria-hidden="true"></span>
-    <span class="visually-hidden">Next</span>
-  </button>
-</div>
-</div>
-
-
-{% endblock  %}
+{% endblock carruselPrincipal  %}
 {% block catalogo %}
 
 
 {% endblock  %}
 
+
+
+
+{% block footer %}
+
+<footer class="footer fixed-bottom bg-light">
+    <div class="container-fluid ">
+
+        <div class="row">
+           <div class="col-sm ">
+               <ul>
+
+                   <!--<li><h3 class="text-capitalize  text-dark text-center">Detocris</h3></li>-->
+
+                   <li><h5 class="text-capitalize  text-dark "> Detocris , Pyme radicada en Quinta normal </h5></li>
+                   <li><img class="logo_menu" src="{% static 'img/detocrislogo.jpeg' %}"></li>
+
+               </ul>
+           </div>
+
+           <div class="col-sm">
+              <ul>
+
+                   <!--<li><h3 class="text-capitalize  text-dark text-center">Redes Sociales</h3></li>-->
+                   <li><h5 class="text-capitalize  text-dark ">Siguenos en nuestras redes</h5></li>
+                   <li><img class="logo_menu" src="{% static 'img/redes_sociales/instagram_social.png' %}"></li>
+
+               </ul>
+           </div>
+           <div class="col-sm">
+
+                <ul>
+
+                   <!--<li><h3 class="text-capitalize  text-dark text-center">Metodos de pago</h3></li>-->                     <img class="" src="{% static 'img/metodos_pago/webpay_plus.png' %}">
+
+                   </li>
+
+               </ul>
+
+
+
+           </div>
+        </div>
+
+    </div>
+
+    </footer>
+
+{% endblock footer %}
 
 
 </body>

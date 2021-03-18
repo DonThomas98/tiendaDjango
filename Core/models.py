@@ -10,6 +10,12 @@ class Sucursal(models.Model):
     def __str__(self):
         return self.nombre
 
+    class Meta:
+        verbose_name = 'Sucursal'
+        verbose_name_plural = 'Sucursales'
+        ordering = ['id']
+        db_table = 'sucursal'
+
 
 class Categoria(models.Model):
     opcionesCategoria = [
@@ -24,6 +30,9 @@ class Categoria(models.Model):
         return self.categoria
 
     class Meta:
+        verbose_name = 'Categoria'
+        verbose_name_plural = 'Categorias'
+        ordering = ['id']
         db_table = 'categoria'
 
 
@@ -39,8 +48,10 @@ class Producto(models.Model):
         return '%s %s' % (self.nombre, self.categoria)
 
     class Meta:
-        db_table = 'producto'
+        verbose_name = 'Producto'
+        verbose_name_plural = 'Productos'
         ordering = ['id']
+        db_table = 'producto'
 
 
 class Venta(models.Model):
@@ -50,8 +61,10 @@ class Venta(models.Model):
         return self.name
 
     class Meta:
-        verbose_name = "Venta"
-        verbose_name_plural = "Ventas"
+        verbose_name = 'Venta'
+        verbose_name_plural = 'Ventas'
+        ordering = ['id']
+        db_table = 'venta'
 
 
 class DetalleVenta(models.Model):
@@ -61,23 +74,33 @@ class DetalleVenta(models.Model):
     def __str__(self):
         return self.name
 
+    class Meta:
+        verbose_name = 'DetalleVenta'
+        verbose_name_plural = 'DetalleVentas'
+        ordering = ['id']
+        db_table = 'detalleVenta'
+
 
 class Contacto(models.Model):
     opcionesContacto = [
-        ('0', 'Contacto'),
-        ('1', 'Reclamo'),
-        ('2', 'Problema al momento de comprar'),
-        ('3', 'Sugerencias'),
-        ('4', 'Felicitaciones'),
+        ('C', 'Contacto'),
+        ('R', 'Reclamo'),
+        ('P', 'Problema al momento de comprar'),
+        ('S', 'Sugerencias'),
+        ('F', 'Felicitaciones'),
     ]
 
     nombre = models.CharField(max_length=70)
     correo = models.EmailField()
-    tipo_contacto = models.IntegerField(choices=opcionesContacto)
+    tipo_contacto = models.CharField(max_length=1, choices=opcionesContacto)
     mensaje = models.CharField(max_length=200)
     avisos = models.BooleanField(blank=True)
 
+    def __str__(self):
+        return '%s %s' % (self.nombre, self.tipo_contacto)
 
-def __str__(self):
-    return '%s %s' % (self.nombre, self.tipo_contacto)
-
+    class Meta:
+        verbose_name = 'Contacto'
+        verbose_name_plural = 'Contactos'
+        ordering = ['id']
+        db_table = 'contacto'

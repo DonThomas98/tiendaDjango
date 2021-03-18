@@ -10,7 +10,7 @@
 {% block catalogo %}
 
 
-<div class="row container-fluid">
+<div class="row container-fluid ">
 <br>
 <!--Breadcrumb-->
 
@@ -23,7 +23,7 @@
 
 {% for p in prod %}
 
-   <div class=" col-sm-3">
+   <div class="col-sm-5 col-md-6 col-lg-3">
      <div class="card">
       <img src="{{ p.foto.url }}" class="imagen_catalogo bg-light" style="display: block;" alt="img">
        <div class="card-body">
@@ -45,3 +45,4 @@
 
 
 {% endblock %}
+
