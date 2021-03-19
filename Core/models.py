@@ -94,7 +94,6 @@ class Contacto(models.Model):
     correo = models.EmailField()
     tipo_contacto = models.CharField(max_length=1, choices=opcionesContacto)
     mensaje = models.CharField(max_length=200)
-    avisos = models.BooleanField(blank=True)
 
     def __str__(self):
         return '%s %s' % (self.nombre, self.tipo_contacto)
