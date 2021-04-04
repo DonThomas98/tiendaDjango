@@ -10,6 +10,8 @@
 <link rel="shortcut icon" type="image/png" href="{% static 'img/detocrislogo.jpeg' %}"/>
 
 <link rel="stylesheet" href="{% static 'css/style.css' %}">
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 <!--Links de bootstrap jquery y css-->
 
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
@@ -20,7 +22,7 @@
 
 </head>
 
-<body  class="bg-dark">
+<body  class="bg-light">
 
 <nav class="navbar navbar-expand-md navbar-light bg-light">
   <div class="container-fluid bg-light">
@@ -43,7 +45,7 @@
             Catalogo
           </a>
           <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-            <li><a class="dropdown-item" href="{% url 'catalogoPefumes' %}">Perfumes</a></li>
+            <li><a class="dropdown-item" href="{% url 'catalogoPerfumes' %}">Perfumes</a></li>
                 <li><hr class="dropdown-divider"></li>
 
             <li><a class="dropdown-item" href="{% url 'catalogoDecoracion' %}">Deco Hogar</a></li>
@@ -55,10 +57,12 @@
           <a class="nav-link " href="{% url 'faq' %}" tabindex="-1">FAQ</a>
         </li>
       </ul>
-      <form class="d-flex">
-        <input class="form-control me-2" type="search" placeholder="Buscar productos" aria-label="Search">
-        <button class="btn btn-outline-success" type="submit">Buscar</button>
+
+      <form action="{% url 'busqueda' %}" class="d-flex" method="get">
+        <input class="form-control" type="text" name="buscar" placeholder="Buscar productos" aria-label="Search">
+        <button class="btn btn-outline-success" type="submit" formmethod="get">Buscar</button>
       </form>
+
     </div>
   </div>
 </nav>
@@ -86,9 +90,9 @@
 
 {% block footer %}
 
-<footer class="footer bg-light fixed-bottom centrar">
+<footer class="container footer bg-light fixed-bottom centrar">
       <div class="container">
-        <span class="text-muted">Siguenos en instagram <a href="https://www.instagram.com/detocris/">@Detocris</a></span>
+        <span class="text-muted">Siguenos en instagram <a href="https://www.instagram.com/detocris/"><i class="fa fa-instagram"></i>Detocris</a></span>
       </div>
     </footer>
 

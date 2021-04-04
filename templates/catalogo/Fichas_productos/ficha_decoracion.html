@@ -1,0 +1,68 @@
+{% extends 'base.html' %}
+{% load static %}
+
+
+{% block title %}Ficha {{ formalidad }}{% endblock title%}
+
+
+{% block catalogo %}
+
+<div class=" container-fluid bg-light">
+
+<div class="row">
+
+
+
+<br>
+<!--Breadcrumb-->
+
+<nav  style="--bs-breadcrumb-divider: '>'; " aria-label="breadcrumb">
+  <ol class="breadcrumb">
+    <li class="breadcrumb-item "><a href="{% url 'hogar' %}">Inicio</a></li>
+    <li class="breadcrumb-item "><a href="{% url 'catalogoDecoracion' %}">Catalogo de {{ formalidad }}</a></li>
+    <li class="breadcrumb-item " aria-current="page">Ficha {{ formalidad }}</li>
+
+  </ol>
+</nav>
+
+
+</div>
+
+<div class="row ">
+
+    <div class="col-sm-4">
+    {% for producto in productos %}
+
+        <h3 class="text-center">{{ producto.nombre|capfirst }}</h3>
+        <hr>
+        <img class="imagen_ficha" src="{{ producto.foto.url }}">
+        <hr>
+
+
+
+        <div >{{ producto.descripcion }} </div>
+
+
+    </div>
+
+    <div class="col-sm-6">
+    <br><br>
+
+        <div > Precio :  ${{ producto.precio }} </div>
+        <div >Stock :   {{ producto.stock }} Unidades </div>
+
+    </div>
+    {% endfor %}
+
+
+
+
+</div>
+
+
+</div>
+<!--Termina el for-->
+
+
+
+{% endblock %}

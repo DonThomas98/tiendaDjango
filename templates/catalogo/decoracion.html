@@ -1,7 +1,7 @@
 {% extends 'base.html' %}
 {% load static %}
 
-{% block title %}Catalogo Decoracion Hogar{% endblock title%}
+{% block title %}Catalogo {{ tipo_producto }} {% endblock title%}
 
 {% block carruselPrincipal %}
 
@@ -10,14 +10,19 @@
 {% block catalogo %}
 
 
-<div class="row container-fluid ">
+<div class=" container-fluid bg-light">
+
+<div class="row">
+
+
+
 <br>
 <!--Breadcrumb-->
 
 <nav  style="--bs-breadcrumb-divider: '>'; " aria-label="breadcrumb">
   <ol class="breadcrumb">
     <li class="breadcrumb-item "><a href="{% url 'hogar' %}">Inicio</a></li>
-    <li class="breadcrumb-item active" aria-current="page">Catalogo de Deco Hogar</li>
+    <li class="breadcrumb-item active" aria-current="page">Catalogo de {{ tipo_producto }}</li>
   </ol>
 </nav>
 
@@ -25,19 +30,21 @@
 
    <div class="col-sm-5 col-md-6 col-lg-3">
      <div class="card">
-      <img src="{{ p.foto.url }}" class="imagen_catalogo bg-light" style="display: block;" alt="img">
+      <img src="{{ p.foto.url }}" class="imagen_catalogo" style="display: block;" alt="img">
        <div class="card-body">
          <h5 class="card-title centrar" >{{ p.nombre }} </h5>
          <p class="card-text">{{ p.descripcion }}</p>
 
-         <a href="{% url 'fichaProducto' %}" class="btn btn-info justify-content-end ">Ver Producto</a>
-         <a href="#" class="btn btn-primary  justify-content-end" >Agregar al carro</a>
+         <a href="{% url 'ver_decoracion' id_producto=p.id %}" class="btn btn-info izquierdazo">Ver Producto
+         </a>
+
+         <a href="#" class="btn btn-primary " >Agregar al carro</a>
        </div>
      </div>
    </div>
 
 {% endfor %}
-
+</div>
 </div>
 <!--Termina el for-->
 
@@ -45,4 +52,3 @@
 
 
 {% endblock %}
-

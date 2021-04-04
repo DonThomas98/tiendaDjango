@@ -1,10 +1,10 @@
 from django.db import models
-
-
+from django.utils import timezone
+from datetime import datetime, timedelta, date
 # Create your models here.
 
+
 class Sucursal(models.Model):
-    nombre_sucursal = models.CharField(max_length=50)
     direccion_sucursal = models.CharField(max_length=50)
 
     def __str__(self):
@@ -36,13 +36,28 @@ class Categoria(models.Model):
         db_table = 'categoria'
 
 
+class Marca(models.Model):
+    marca = models.CharField(max_length=20)
+
+    def __str__(self):
+        return self.marca
+
+    class Meta:
+        verbose_name = 'Marca'
+        verbose_name_plural = 'Marcas'
+        ordering = ['id']
+        db_table = 'marca'
+
+
 class Producto(models.Model):
     nombre = models.CharField(max_length=100)
+    marca = models.ForeignKey(Marca, on_delete=models.CASCADE)
     precio = models.IntegerField(default=0)
     stock = models.IntegerField(default=0)
     foto = models.ImageField(upload_to='media/', default=0)
     categoria = models.ForeignKey(Categoria, on_delete=models.CASCADE)
     descripcion = models.CharField(max_length=200, default='No hay descripción')
+    agregado = models.DateField(auto_now=True,)
 
     def __str__(self):
         return '%s %s' % (self.nombre, self.categoria)

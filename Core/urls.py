@@ -14,16 +14,25 @@ Including another URLconf
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
 from django.urls import path
-from .views import base, faq, listar_perfumes, ficha_producto, ContactoForm,ContactoCreateView,listar_decoracion,\
-    listar_dormitorio
+from .views import *
 
 urlpatterns = [
 
     path('', base, name='hogar'),
-    path('faq', faq, name='faq'),
-    path('catalogo/perfumes', listar_perfumes, name='catalogoPefumes'),
-    path('catalogo/decoracion', listar_decoracion, name='catalogoDecoracion'),
-    path('catalogo/dormitorio', listar_dormitorio, name='catalogoDormitorio'),
-    path('catalogo/ficha/int:id', ficha_producto, name='fichaProducto'),
+
+    path('faq', faq, name='faq'),  # PREGUNTAS FRECUENTES
+
+    path('catalogo/busqueda/', busquedaView.as_view(), name='busqueda'),  # BUSQUEDA DE PRODUCTOS EN LA BARRA
+
+    path('catalogo/perfumes', catalogo_perfumes, name='catalogoPerfumes'),
+    path('catalogo/perfumes/producto<int:id_producto>/', ver_perfume, name='ver_perfume'),
+
+    path('catalogo/decoracion', catalogo_decoracion, name='catalogoDecoracion'),
+    path('catalogo/decoracion/producto<int:id_producto>/', ver_decoracion, name='ver_decoracion'),
+
+    path('catalogo/dormitorio', catalogo_dormitorio, name='catalogoDormitorio'),
+    path('catalogo/dormitorio/producto<int:id_producto>/', ver_dormitorio, name='ver_dormitorio'),
+
     path('contacto', ContactoCreateView.as_view(), name='contacto'),
+
 ]

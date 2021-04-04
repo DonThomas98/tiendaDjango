@@ -23,6 +23,16 @@
     max-width: 100%;
 }
 
+.imagen_ficha{
+
+    margin-left: auto;
+    margin-right: auto;
+    width: 250px;
+    height: 250px;
+    max-width: 100%;
+}
+
+
 .derechazo {
     float: right;
 }

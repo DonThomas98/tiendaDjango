@@ -1,0 +1,64 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Catalogo Perfumes{% endblock title%}
+
+{% block carruselPrincipal %}
+
+{% endblock  %}
+
+{% block catalogo %}
+
+<!--Breadcrumb-->
+
+
+<div class=" container-fluid bg-light">
+
+<div class="row">
+
+<nav  style="--bs-breadcrumb-divider: '>'; " aria-label="breadcrumb">
+  <ol class="breadcrumb">
+    <li class="breadcrumb-item "><a href="{% url 'hogar' %}">Inicio</a></li>
+    <li class="breadcrumb-item active" aria-current="page">Busqueda de productos</li>
+  </ol>
+</nav>
+
+{% for p in object_list %}
+
+   <div class="col-sm-5 col-md-6 col-lg-3">
+     <div class="card">
+      <img src="{{ p.foto.url }}" class="imagen_catalogo" style="display: block;" alt="img">
+       <div class="card-body">
+         <h5 class="card-title centrar" >{{ p.nombre }} </h5>
+         <p class="card-text">{{ p.descripcion }}</p>
+
+         <a href="{% url 'ver_decoracion' id_producto=p.id %}" class="btn btn-info izquierdazo">Ver Producto
+         </a>
+
+         <a href="#" class="btn btn-primary " >Agregar al carro</a>
+       </div>
+     </div>
+   </div>
+
+{% endfor %}
+</div>
+</div>
+<!--Termina el for-->
+
+
+
+
+
+
+
+
+
+
+
+
+<!--Termina el for-->
+
+
+
+
+{% endblock %}

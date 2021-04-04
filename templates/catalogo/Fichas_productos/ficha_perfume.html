@@ -1,0 +1,35 @@
+{% extends 'base.html' %}
+{% load static %}
+
+
+{% block title %}Ficha {{ formalidad }}{% endblock title%}
+
+
+{% block catalogo %}
+
+<div class=" container-fluid bg-light">
+
+<div class="row">
+
+
+
+<br>
+<!--Breadcrumb-->
+
+<nav  style="--bs-breadcrumb-divider: '>'; " aria-label="breadcrumb">
+  <ol class="breadcrumb">
+    <li class="breadcrumb-item "><a href="{% url 'hogar' %}">Inicio</a></li>
+    <li class="breadcrumb-item "><a href="{% url 'catalogoPerfumes' %}">Catalogo de {{ formalidad }}</a></li>
+    <li class="breadcrumb-item " aria-current="page">Ficha {{ formalidad }}</li>
+
+  </ol>
+</nav>
+
+
+</div>
+</div>
+<!--Termina el for-->
+
+
+
+{% endblock %}
