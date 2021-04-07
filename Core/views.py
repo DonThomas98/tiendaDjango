@@ -95,17 +95,9 @@ class busquedaView(ListView):
 
     def get_queryset(self):
         query = self.request.GET.get('buscar')
-        object_list= Producto.objects.filter(
+        object_list = Producto.objects.filter(
             Q(nombre__icontains=query)
 
         )
         return object_list
 
-
-class busquedaView2(ListView):
-    model = Producto
-    template_name = 'barra_busqueda/busqueda_productos.html'
-    queryset = Producto.objects.filter(nombre__contains='bella')
-
-    def get_queryset(self):
-        return Producto.objects.filter(nombre__contains='bella')

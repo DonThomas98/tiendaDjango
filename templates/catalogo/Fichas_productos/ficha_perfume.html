@@ -30,6 +30,38 @@
 </div>
 <!--Termina el for-->
 
+<div class="row ">
+
+    <div class="col-sm-4">
+    {% for producto in productos %}
+
+        <h3 class="text-center">{{ producto.nombre|capfirst }}</h3>
+        <hr>
+        <img class="imagen_ficha" src="{{ producto.foto.url }}">
+        <hr>
+
+
+
+        <div >{{ producto.descripcion }} </div>
+
+
+    </div>
+
+    <div class="col-sm-6">
+    <br><br>
+
+        <div > Precio :  ${{ producto.precio }} </div>
+        <div >Stock :   {{ producto.stock }} Unidades </div>
+
+    </div>
+    {% endfor %}
+
+
+
+
+</div>
+
+
 
 
 {% endblock %}
