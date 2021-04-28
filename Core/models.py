@@ -118,3 +118,4 @@ class Contacto(models.Model):
         verbose_name_plural = 'Contactos'
         ordering = ['id']
         db_table = 'contacto'
+
