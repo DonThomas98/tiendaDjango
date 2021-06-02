@@ -1,5 +1,6 @@
 from django.shortcuts import render, HttpResponse
 from django.views.generic import ListView, CreateView
+from django.views.generic.detail import DetailView
 from .models import Producto, Categoria, Contacto
 from pytz import timezone
 from .forms import ContactoForm
@@ -19,16 +20,22 @@ def base(request):
 def faq(request):
     return render(request, 'faq.html')
 
+#def catalogo_perfumes(request):
+ #   perfumes = Producto.objects.all().filter(categoria=2)
 
-def catalogo_perfumes(request):
-    perfumes = Producto.objects.all().filter(categoria=2)
+  #  data = {
+   #     'prod': perfumes,
+    #    'tipo_producto': 'Perfumes'
 
-    data = {
-        'prod': perfumes,
-        'tipo_producto': 'Perfumes'
+    #}
+    #return render(request, 'catalogo/perfumes.html', data)
 
-    }
-    return render(request, 'catalogo/perfumes.html', data)
+
+class Catalogo_Perfume_ListView(ListView):
+    template_name = 'catalogo/perfumes.html'
+    queryset = perfumes = Producto.objects.all().filter(categoria=2)
+    paginate_by = 12
+
 
 
 def ver_perfume(request, id_producto):
@@ -36,6 +43,7 @@ def ver_perfume(request, id_producto):
     contexto = {
         'productos': producto,
         'formalidad': 'Perfume',
+
     }
     print(contexto)
     return render(request, 'catalogo/Fichas_productos/ficha_perfume.html', contexto)
@@ -100,4 +108,27 @@ class busquedaView(ListView):
 
         )
         return object_list
+
+
+class PerfumeDetailView(DetailView):
+    model = Producto
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 

@@ -24,14 +24,14 @@ urlpatterns = [
 
     path('catalogo/busqueda/', busquedaView.as_view(), name='busqueda'),  # BUSQUEDA DE PRODUCTOS EN LA BARRA
 
-    path('catalogo/perfumes', catalogo_perfumes, name='catalogoPerfumes'),
-    path('catalogo/perfumes/producto<int:id_producto>/', ver_perfume, name='ver_perfume'),
+    path('catalogo/perfumes', Catalogo_Perfume_ListView.as_view, name='catalogoPerfumes'),
+    path('catalogo/perfumes/<int:id_producto>/', ver_perfume, name='ver_perfume'),
 
     path('catalogo/decoracion', catalogo_decoracion, name='catalogoDecoracion'),
-    path('catalogo/decoracion/producto<int:id_producto>/', ver_decoracion, name='ver_decoracion'),
+    path('catalogo/decoracion/<int:id_producto>/', ver_decoracion, name='ver_decoracion'),
 
     path('catalogo/dormitorio', catalogo_dormitorio, name='catalogoDormitorio'),
-    path('catalogo/dormitorio/producto<int:id_producto>/', ver_dormitorio, name='ver_dormitorio'),
+    path('catalogo/dormitorio/<int:id_producto>/', ver_dormitorio, name='ver_dormitorio'),
 
     path('contacto', ContactoCreateView.as_view(), name='contacto'),
 
