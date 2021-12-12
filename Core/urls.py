@@ -24,7 +24,7 @@ urlpatterns = [
 
     path('catalogo/busqueda/', busquedaView.as_view(), name='busqueda'),  # BUSQUEDA DE PRODUCTOS EN LA BARRA
 
-    path('catalogo/perfumes', Catalogo_Perfume_ListView.as_view, name='catalogoPerfumes'),
+    path('catalogo/perfumes', Catalogo_Perfume_ListView.as_view(), name='catalogoPerfumes'),
     path('catalogo/perfumes/<int:id_producto>/', ver_perfume, name='ver_perfume'),
 
     path('catalogo/decoracion', catalogo_decoracion, name='catalogoDecoracion'),
